@@ -14,10 +14,12 @@ const multiply=document.querySelector(".multiply");
 const subtract=document.querySelector(".subtract");
 const plus=document.querySelector(".plus");
 const equal=document.querySelector(".equals");
+const clear=document.querySelector(".clear");
 //The screen
 const screen=document.querySelector(".screen");
 let outcome;
 let numberArray=[];
+console.log(numberArray);
 let operation;
 
 function addNumbers(numOne,numTwo){
@@ -41,8 +43,9 @@ function multiplyNumbers(numOne,numTwo){
 
 function operate(operator,numberOne,numberTwo){
     operator=operation;
-    numberOne=numberArray[1];
-    numberTwo=numberArray[2];
+    numberOne=numberArray[0];
+    numberTwo=numberArray[1];
+    console.log(numberArray);
     if (operator===plus){
         outcome=addNumbers(numberOne,numberTwo);
     }
@@ -58,8 +61,15 @@ function operate(operator,numberOne,numberTwo){
     // return outcome;
     screen.innerHTML=outcome;
 }
+function clearCalculator(){
+    numberArray=[];
+    screen.innerHTML="";
+    outcome="";
+    operation="";
+    console.log(numberArray);
+}
 
-for (let i=1;i<3;i++){
+for (let i=0;i<2;i++){
     one.addEventListener('click', function () {
         screen.innerHTML = "1";
         numberArray[i] = 1;
@@ -123,4 +133,6 @@ subtract.addEventListener('click',function () {
 
 });
 
+
+clear.addEventListener('click',clearCalculator);
 equal.addEventListener('click',operate);
