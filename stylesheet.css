@@ -37,9 +37,16 @@ margin-left: 6%;
     border: 2px solid black;
 
 }
+.clear{
+    width:75px ;
+    height: 30px;
+margin-bottom: 3%;
+    margin-left: 28px;
+}
+
 .buttons{
     height: 400px;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 button{
 width: 80px;
