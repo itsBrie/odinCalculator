@@ -18,10 +18,9 @@ const clear=document.querySelector(".clear");
 //The screen
 const screen=document.querySelector(".screen");
 let outcome;
-let numberArray=[];
-console.log(numberArray);
 let operation;
-
+let arrayNumber=[];
+let i=0;
 function addNumbers(numOne,numTwo){
 return numOne+numTwo;
 
@@ -42,10 +41,9 @@ function multiplyNumbers(numOne,numTwo){
 
 
 function operate(operator,numberOne,numberTwo){
+numberOne=arrayNumber[0];
+numberTwo=arrayNumber[1];
     operator=operation;
-    numberOne=numberArray[0];
-    numberTwo=numberArray[1];
-    console.log(numberArray);
     if (operator===plus){
         outcome=addNumbers(numberOne,numberTwo);
     }
@@ -58,64 +56,114 @@ function operate(operator,numberOne,numberTwo){
     if (operator===multiply){
         outcome=multiplyNumbers(numberOne,numberTwo);
     }
+
     // return outcome;
     screen.innerHTML=outcome;
+
 }
 function clearCalculator(){
-    numberArray=[];
+    arrayNumber=[];
+    i=0;
     screen.innerHTML="";
     outcome="";
     operation="";
-    console.log(numberArray);
 }
 
-for (let i=0;i<2;i++){
-    one.addEventListener('click', function () {
+//Event Listeners buttons
+    one.addEventListener('click',()=> {
         screen.innerHTML = "1";
-        numberArray[i] = 1;
-        i++;
+       if (i===0){
+           arrayNumber[i]=1;
+           ++i;
+       }
+       if (i===1){
+           arrayNumber[i]=1;
+       }
     });
+
+
     two.addEventListener('click', function () {
         screen.innerHTML = "2";
-        numberArray[i] = 2;
-        i++;
+        if (i===0){
+            arrayNumber[i]=2;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=2;
+        }
     });
     three.addEventListener('click', function () {
         screen.innerHTML = "3";
-        numberArray[i] = 3;
-        i++;
+        if (i===0){
+            arrayNumber[i]=3;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=3;
+        }
     });
     four.addEventListener('click', function () {
         screen.innerHTML = "4";
-        numberArray[i] = 4;
-        i++;
+        if (i===0){
+            arrayNumber[i]=4;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=4;
+        }
     });
     five.addEventListener('click', function () {
         screen.innerHTML = "5";
-        numberArray[i] = 5;
-        i++;
+        if (i===0){
+            arrayNumber[i]=5;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=5;
+        }
     });
     six.addEventListener('click', function () {
         screen.innerHTML = "6";
-        numberArray[i] = 6;
-        i++;
+        if (i===0){
+            arrayNumber[i]=6;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=6;
+        }
     });
     seven.addEventListener('click', function () {
         screen.innerHTML = "7";
-        numberArray[i] = 7;
-        i++;
+        if (i===0){
+            arrayNumber[i]=7;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=7;
+        }
     });
     eight.addEventListener('click', function () {
         screen.innerHTML = "8";
-        numberArray[i] = 8;
-        i++;
+        if (i===0){
+            arrayNumber[i]=8;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=8;
+        }
     });
     nine.addEventListener('click', function () {
         screen.innerHTML = "9";
-        numberArray[i] = 9;
-        i++;
+        if (i===0){
+            arrayNumber[i]=9;
+            ++i;
+        }
+        if (i===1){
+            arrayNumber[i]=9;
+        }
     });
-}
+
+    //Event Listeners Operation
 plus.addEventListener('click',function () {
     operation=plus;
 
