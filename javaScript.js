@@ -17,12 +17,14 @@ const equal=document.querySelector(".equals");
 const clear=document.querySelector(".clear");
 //The screen
 const screen=document.querySelector(".screen");
-let outcome;
+let outcome=0;
 let operation;
 let arrayNumber=[];
-let i=0;
+let click=0;
+let operandClick=0;
 function addNumbers(numOne,numTwo){
-return numOne+numTwo;
+    return numOne+numTwo;
+
 
 }
 function subtractNumbers(numOne,numTwo){
@@ -40,30 +42,35 @@ function multiplyNumbers(numOne,numTwo){
 
 
 
-function operate(operator,numberOne,numberTwo){
-numberOne=arrayNumber[0];
-numberTwo=arrayNumber[1];
-    operator=operation;
-    if (operator===plus){
-        outcome=addNumbers(numberOne,numberTwo);
-    }
-    if (operator===subtract){
-        outcome=subtractNumbers(numberOne,numberTwo);
-    }
-    if (operator===divide){
-        outcome=divideNumbers(numberOne,numberTwo);
-    }
-    if (operator===multiply){
-        outcome=multiplyNumbers(numberOne,numberTwo);
-    }
+function operate(operator,numberOne,numberTwo) {
+        numberOne = arrayNumber[0];
+        numberTwo = arrayNumber[1];
+        operator = operation;
+        if (operator===plus) {
+            outcome+=addNumbers(numberOne, numberTwo);
+            operandClick=0;
+        }
+        if (operator===subtract) {
+            outcome +=subtractNumbers(numberOne, numberTwo);
+            operandClick=0;
+        }
+        if (operator===divide) {
+            outcome += divideNumbers(numberOne, numberTwo);
+            operandClick=0;
+        }
+        if (operator===multiply) {
+            outcome +=multiplyNumbers(numberOne, numberTwo);
+            operandClick=0;
+        }
 
-    // return outcome;
-    screen.innerHTML=outcome;
+        // return outcome;
+        screen.innerHTML = outcome;
+
 
 }
 function clearCalculator(){
     arrayNumber=[];
-    i=0;
+    click=0;
     screen.innerHTML="";
     outcome="";
     operation="";
@@ -72,112 +79,84 @@ function clearCalculator(){
 //Event Listeners buttons
     one.addEventListener('click',()=> {
         screen.innerHTML = "1";
-       if (i===0){
-           arrayNumber[i]=1;
-           ++i;
-       }
-       if (i===1){
-           arrayNumber[i]=1;
-       }
+        if (click===0){
+            arrayNumber[click]=1;
+            ++click;
+        }
+        if (click===1){
+            arrayNumber[click]=1;
+        }
     });
 
 
     two.addEventListener('click', function () {
         screen.innerHTML = "2";
-        if (i===0){
-            arrayNumber[i]=2;
-            ++i;
+        if (click===0){
+            arrayNumber[click]=2;
+            ++click;
         }
-        if (i===1){
-            arrayNumber[i]=2;
+        if (click===1){
+            arrayNumber[click]=2;
         }
     });
     three.addEventListener('click', function () {
         screen.innerHTML = "3";
-        if (i===0){
-            arrayNumber[i]=3;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=3;
-        }
+        arrayNumber[click]=3;
+        ++click;
     });
     four.addEventListener('click', function () {
         screen.innerHTML = "4";
-        if (i===0){
-            arrayNumber[i]=4;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=4;
-        }
+        arrayNumber[click]=4;
+        ++click;
     });
     five.addEventListener('click', function () {
         screen.innerHTML = "5";
-        if (i===0){
-            arrayNumber[i]=5;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=5;
-        }
+        arrayNumber[click]=5;
+        ++click;
     });
     six.addEventListener('click', function () {
         screen.innerHTML = "6";
-        if (i===0){
-            arrayNumber[i]=6;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=6;
-        }
+        arrayNumber[click]=6;
+        ++click;
     });
     seven.addEventListener('click', function () {
         screen.innerHTML = "7";
-        if (i===0){
-            arrayNumber[i]=7;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=7;
-        }
+        arrayNumber[click]=7;
+        ++click;
     });
     eight.addEventListener('click', function () {
         screen.innerHTML = "8";
-        if (i===0){
-            arrayNumber[i]=8;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=8;
-        }
+        arrayNumber[click]=8;
+        ++click;
     });
     nine.addEventListener('click', function () {
         screen.innerHTML = "9";
-        if (i===0){
-            arrayNumber[i]=9;
-            ++i;
-        }
-        if (i===1){
-            arrayNumber[i]=9;
-        }
+        arrayNumber[click]=9;
+        ++click;
     });
 
     //Event Listeners Operation
 plus.addEventListener('click',function () {
-    operation=plus;
-
-});
+    if (operandClick===0) {
+        ++operandClick; //which will make it one
+    }else{
+        operation=plus;
+        operate();
+    }
+    });
 divide.addEventListener('click',function () {
     operation=divide;
+    ++operandClick;
 
 });
 multiply.addEventListener('click',function () {
     operation=multiply;
+    ++operandClick;
 
 });
 subtract.addEventListener('click',function () {
     operation=subtract;
+    ++operandClick;
 
 });
 
